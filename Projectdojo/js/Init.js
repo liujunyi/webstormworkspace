@@ -27,26 +27,8 @@ require([
         Map.extent=initialExtent;
         graphicsLayer = new esri.layers.GraphicsLayer();
         Map.addLayer(graphicsLayer);
-        var store = new dojox.data.XmlStore({url: "Tree/Book.xml", rootItem: "book"});
 
-        var gotBooks = function(items, request){
-            for(var i = 0; i < items.length; i++){
-                var item = items[i];
-                console.log("Located book: " + store.getValue(item, "title"));
-            }
-        }
-        var request = store.fetch({query: {isbn:"1*"}, queryOptions: {ignoreCase: true}, onComplete: gotBooks});
 
-    /*    var gotBooks = function(items, request){
-            for(var i = 0; i < items.length; i++){
-                var item = items[i];
-                console.log("Located book: " + store.getValue(item, "title");
-            }
-        }*/
-         xmlStore = new dojox.data.XmlStore({
-            url: "../Tree/content.xml",
-            label: "name"
-        });
 
     });
 });
