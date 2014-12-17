@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" href="http://localhost/arcgis_js_api/library/3.9/3.9/js/dojo/dijit/themes/tundra/tundra.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost/arcgis_js_api/library/3.9/3.9/js/esri/css/esri.css" />
+    <script type="text/javascript" src="http://localhost/arcgis_js_api/library/3.9/3.9/init.js"></script>
+    <link  rel="stylesheet"  href="http://localhost/ext/resources/css/ext-all-neptune.css"/>
+    <script type="text/javascript" src="http://localhost/ext/bootstrap.js"></script>
+    <script type="text/javascript" src="http://localhost/ext/locale/ext-lang-zh_CN.js"></script>
+    <style type="text/css">
+        html,body,#mapDiv {
+            width:100%;
+            height:100%;
+        }
+    </style>
+    <script type="text/javascript">
+        dojo.require("esri.map");
+        function init() {
+            var myMap = new esri.Map("mapDiv");
+            var myTiledMapServiceLayer = new esri.layers.ArcGISDynamicMapServiceLayer("http://localhost:6080/arcgis/rest/services/ChinaCityMap/MapServer");
+            myMap.addLayer(myTiledMapServiceLayer);
+
+
+            var mapurl ="http://localhost:6080/arcgis/rest/services/IDW_new/MapServer/jobs/jb1aa4a31b87c47bfa920d0f971a18bf5";
+            //alert(mapurl);
+            var hotspotLayer = new esri.layers.ArcGISDynamicMapServiceLayer(mapurl, {
+                "id": "HotspotLayer",
+                "opacity": 0.7
+            });
+            myMap.addLayer(hotspotLayer);
+        }
+        dojo.addOnLoad(init);
+    </script>
+</head>
+<body class="tundra">
+<div id="mapDiv"></div>
+</body>
+</html>

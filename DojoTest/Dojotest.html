@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Untitled</title>
+    <script type="text/javascript" src="http://localhost/arcgis_js_v311_api/arcgis_js_api/library/3.11/3.11/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'}],'themeMap':[['Android','',['themes/android/android.css']],['BlackBerry','',['themes/blackberry/blackberry.css']],['iPad','',['themes/ipad/ipad.css']],['iPhone','',['themes/iphone/iphone.css']],['.*','',['themes/iphone/iphone.css']]],'mblThemeFiles':[],'mblLoadCompatPattern':''"></script>
+    <script type="text/javascript">
+        require([
+            "dijit/dijit",
+            "dojo/parser",
+            "maqetta/space",
+            "maqetta/AppStates",
+            "dijit/layout/BorderContainer",
+            "dijit/layout/ContentPane",
+            "dijit/layout/AccordionContainer",
+            "dijit/layout/TabContainer",
+            "dijit/Toolbar",
+            "dijit/form/Button",
+            "dijit/form/ComboButton",
+            "dijit/Menu",
+            "dijit/MenuItem",
+            "dijit/form/DropDownButton",
+            "dojo/store/Memory",
+            "dijit/tree/ObjectStoreModel",
+            "dijit/Tree",
+            "dojox/io/xhrScriptPlugin",
+            "dojo/data/ItemFileReadStore",
+            "gridx/Grid",
+            "gridx/core/model/cache/Async",
+            "dojox/data/CsvStore"
+        ]);
+    </script>
+    <link href="http://localhost/arcgis_js_v311_api/arcgis_js_api/library/3.11/3.11/dijit/themes/claro/document.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost/arcgis_js_v311_api/arcgis_js_api/library/3.11/3.11/dijit/themes/claro/claro.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body data-maq-flow-layout="true" data-maq-comptype="desktop" class="claro" data-maq-ws="collapse" id="myapp" data-maq-appstates="{}">
+<div data-dojo-type="dijit/layout/BorderContainer" design="headline" persist="false" gutters="true" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="top" splitter="true" maxSize="Infinity" style="height: 50px;" doLayout="false"></div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="bottom" splitter="true" maxSize="Infinity" style="height: 50px;" doLayout="false"><span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_1" data="{&quot;identifier&quot;:&quot;id&quot;,&quot;items&quot;:[{&quot;id&quot;:&quot;1&quot;,&quot;label&quot;:&quot;Label 1&quot;},{&quot;id&quot;:&quot;2&quot;,&quot;label&quot;:&quot;Label 2&quot;}]}" jsId="ItemFileReadStore_1"></span>
+        <table data-dojo-type="gridx/Grid" data-dojo-props="cacheClass: 'gridx/core/model/cache/Async',structure:[{field: 'id', name: 'ID', width: 'auto'}, {field: 'label', name: 'Label', width: 'auto'}],store:ItemFileReadStore_1" style="min-width: 1em; min-height: 1em; width: 100%; height: 100%;"></table>
+    </div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="left" splitter="true" maxSize="Infinity" style="width: 50px;" doLayout="false"><span data-dojo-type="dijit/layout/AccordionContainer" style="min-width: 1em; min-height: 1em; width: 100%; height: 100%;">
+<div data-dojo-type="dijit/layout/ContentPane" title="Pane 1" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" selected="true" closable="false" doLayout="false"><span data-dojo-type="dijit/layout/AccordionContainer" style="min-width: 1em; min-height: 1em; width: 100%; height: 100%;">
+<div data-dojo-type="dijit/layout/ContentPane" title="Pane 1" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" selected="true" closable="false" doLayout="false"></div>
+<div data-dojo-type="dijit/layout/ContentPane" title="Pane 2" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" selected="true" closable="false" doLayout="false"></div>
+</span></div>
+<div data-dojo-type="dijit/layout/ContentPane" title="Pane 2" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" selected="true" closable="false" doLayout="false">
+    <div data-dojo-type="dojo/store/Memory" id="Memory_1" data="[{&quot;id&quot;:&quot;treeRoot&quot;,&quot;label&quot;:&quot;Root&quot;},{&quot;id&quot;:&quot;1&quot;,&quot;label&quot;:&quot;1&quot;,&quot;parent&quot;:&quot;treeRoot&quot;},{&quot;id&quot;:&quot;1.1&quot;,&quot;label&quot;:&quot;1.1&quot;,&quot;parent&quot;:&quot;1&quot;,&quot;leaf&quot;:&quot;true&quot;},{&quot;id&quot;:&quot;1.2&quot;,&quot;label&quot;:&quot;1.2&quot;,&quot;parent&quot;:&quot;1&quot;,&quot;leaf&quot;:&quot;true&quot;},{&quot;id&quot;:&quot;2&quot;,&quot;label&quot;:&quot;2&quot;,&quot;parent&quot;:&quot;treeRoot&quot;},{&quot;id&quot;:&quot;2.1&quot;,&quot;label&quot;:&quot;2.1&quot;,&quot;parent&quot;:&quot;2&quot;,&quot;leaf&quot;:&quot;true&quot;},{&quot;id&quot;:&quot;2.2&quot;,&quot;label&quot;:&quot;2.2&quot;,&quot;parent&quot;:&quot;2&quot;,&quot;leaf&quot;:&quot;true&quot;},{&quot;id&quot;:&quot;2.3&quot;,&quot;label&quot;:&quot;2.3&quot;,&quot;parent&quot;:&quot;2&quot;,&quot;leaf&quot;:&quot;true&quot;}]" jsId="Memory_1">
+        <script type="dojo/method" data-dojo-event="getChildren" data-dojo-args="item">return this.query({parent: this.getIdentity(item)});</script>
+    </div>
+    <div data-dojo-type="dijit/tree/ObjectStoreModel" id="ObjectStoreModel_1" labelAttr="label" query="{&quot;id&quot;:&quot;treeRoot&quot;}" jsId="ObjectStoreModel_1" store="Memory_1">
+        <script type="dojo/method" data-dojo-event="mayHaveChildren" data-dojo-args="item">return !item.leaf;</script>
+    </div>
+    <div data-dojo-type="dijit/Tree" style="min-height: 1em; width: 100%; height: 100%;" showRoot="false" autoExpand="true" model="ObjectStoreModel_1"></div>
+</div>
+</span></div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="right" splitter="true" maxSize="Infinity" style="width: 50px;" doLayout="false"></div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="center" splitter="false" maxSize="Infinity" doLayout="false"><span data-dojo-type="dijit/layout/TabContainer" style="min-width: 1em; min-height: 1em; width: 100%; height: 100%;" controllerWidget="dijit.layout.TabController">
+<div data-dojo-type="dijit/layout/ContentPane" title="Tab 1" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" selected="true" closable="false" doLayout="false"><span data-dojo-type="dijit/Toolbar">
+<input type="button" data-dojo-type="dijit/form/Button" tabIndex="-1" intermediateChanges="false" label="Button 1" iconClass="dijitNoIcon"></input>
+<input type="button" data-dojo-type="dijit/form/Button" tabIndex="-1" intermediateChanges="false" label="Button 2" iconClass="dijitNoIcon"></input>
+<input type="button" data-dojo-type="dijit/form/Button" tabIndex="-1" intermediateChanges="false" label="Button 3" iconClass="dijitNoIcon"></input>
+<span data-dojo-type="dijit/form/ComboButton" tabIndex="-1" intermediateChanges="false" label="Combo Button" iconClass="dijitNoIcon" dropDownPosition="below"><span data-dojo-type="dijit/Menu" contextMenuForWindow="false" leftClickToOpen="false" tabIndex="0"><span data-dojo-type="dijit/MenuItem" label="Option 1" iconClass="dijitNoIcon"></span><span data-dojo-type="dijit/MenuItem" label="Option 2" iconClass="dijitNoIcon"></span>
+</span>
+</span><span data-dojo-type="dijit/form/DropDownButton" tabIndex="-1" intermediateChanges="false" label="Drop Down" iconClass="dijitNoIcon"><span data-dojo-type="dijit/Menu" contextMenuForWindow="false" leftClickToOpen="false" tabIndex="0"><span data-dojo-type="dijit/MenuItem" label="Option 1" iconClass="dijitNoIcon"></span><span data-dojo-type="dijit/MenuItem" label="Option 2" iconClass="dijitNoIcon"></span>
+</span>
+</span></span></div>
+<div data-dojo-type="dijit/layout/ContentPane" title="Tab 2" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" selected="true" closable="false" doLayout="false"></div>
+</span></div>
+</div>
+</body>
+</html>

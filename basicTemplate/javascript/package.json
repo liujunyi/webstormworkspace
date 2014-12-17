@@ -1,0 +1,39 @@
+{"mapOptions": {
+    "showAttribution": true,
+    "extent": {
+        "xmin": 121.38334945699786,
+        "ymin": 38.911466169989,
+        "xmax": 121.50170997640704,
+        "ymax": 38.93592791620482,
+        "spatialReference": {
+            "wkid": 4490,
+            "latestWkid": 4490
+        }
+    },
+    "spatialReference": {
+        "wkid": 4490,
+        "latestWkid": 4490
+    },
+    "scale": 24000
+}, "operationalLayers": [
+    {
+        "id": "defaultBasemap",
+        "title": "defaultBasemap",
+        "opacity": 1,
+        "minScale": 2308574.9457714846,
+        "maxScale": 4508.935440959931,
+        "url": "http://esrisy.arcgiscloud.com:6080/arcgis/rest/services/Hosted/DaLianCGS2000/MapServer"
+    },
+    {
+        "id": "map_graphics",
+        "opacity": 1,
+        "minScale": 0,
+        "maxScale": 0,
+        "featureCollection": {
+            "layers": []
+        }
+    }
+], "exportOptions": {
+    "outputSize": [5000, 3000],
+    "dpi": 96
+}}
