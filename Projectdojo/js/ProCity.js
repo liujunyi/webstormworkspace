@@ -1,6 +1,8 @@
 dojo.require("dojo.data.ItemFileReadStore");
 dojo.require( "dijit.Tree" );
-
+dojo.require("dojo/store/Memory");
+dojo.require("dijit/tree/ObjectStoreModel");
+dojo.require("dojo/json");
 var provinceAndCityData =  [
     {"id": 1, "code": "110000", "name": "北京市", "city": [
         {"id": 2, "code": "110100", "name": "市辖区", "area": [
@@ -3909,19 +3911,48 @@ var provinceAndCityData =  [
 ];
 
 function prepare(){
-    var store = new dojo.data.ItemFileReadStore({
+ /*   var store = new dojo.data.ItemFileReadStore({
         data: { identifier: 'id', label : 'name', items: provinceAndCityData }
     });
+*/
+    var governmentStore = new dojo.store. Memory({
+        data: [dojo.json.parse(provinceAndCityData) ],
+        getChildren: function(object){
+            return object.children || [];
+        }
+    });
+
+    var governmentModel = new dijit.tree.ObjectStoreModel({
+        store: governmentStore,
+        query: {id: 'root'},
+        mayHaveChildren: function(item){
+            return "children" in item;
+        }
+    });
+
+    var governmentTree = new dijit.Tree({
+        model: governmentModel,
+        onOpenClick: true,
+        onLoad: function(){
+            dom.byId('image').src = '../resources/images/root.jpg';
+        },
+        onClick: function(item){
+            dom.byId('image').src = '../resources/images/'+item.id+'.jpg';
+
+        }
+    }).placeAt(dojo.byId("query")).startup();
+
+/*
     var treeModel = new dijit.tree.ForestStoreModel({ store: store });
     var treeControl = new dijit.Tree({
         model: treeModel,
         showRoot: false,
-        _createTreeNode: function(/*Object*/ args){
+        _createTreeNode: function(*//*Object*//* args){
             var tnode = new dijit._TreeNode(args);
             tnode.labelNode.innerHTML = args.label;
             return tnode;
         }
-    }).placeAt(dojo.byId("query")).startup();
+    }).placeAt(dojo.byId("query")).startup();*/
 }
 
 dojo.ready(prepare);
