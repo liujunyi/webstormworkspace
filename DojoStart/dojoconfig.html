@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!-- set Dojo configuration, load Dojo -->
+<script>
+    dojoConfig= {
+        has: {
+            "dojo-firebug": true
+        },
+        parseOnLoad: false,
+        foo: "bar",
+        async: true
+    };
+</script>
+<script src="http://localhost/arcgis_js_v311_API/arcgis_js_api/library/3.11/3.11/dojo/dojo.js"></script>
+
+<script>
+    // Require the registry, parser, Dialog, and wait for domReady
+    require(["dijit/registry", "dojo/parser", "dojo/json", "dojo/_base/config", "dijit/Dialog", "dojo/domReady!"]
+            , function(registry, parser, JSON, config) {
+                // Explicitly parse the page
+                parser.parse();
+                // Find the dialog
+                var dialog = registry.byId("dialog");
+                // Set the content equal to what dojo.config is
+                dialog.set("content", "<pre>" + JSON.stringify(config, null, "\t") + "</pre>");
+                // Show the dialog
+                dialog.show();
+            });
+</script>
+
+<!-- and later in the page -->
+<div id="dialog" data-dojo-type="dijit/Dialog" data-dojo-props="title: 'dojoConfig / dojo/_base/config'"></div>
+</body>
+</html>

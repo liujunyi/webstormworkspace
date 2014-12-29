@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tutorial: Hello Dojo!</title>
+</head>
+<body>
+<h1 id="greeting">Hello</h1>
+<!-- load Dojo -->
+<script>
+
+    var dojoConfig = {
+        async: true,
+        // This code registers the correct location of the "demo"
+        // package so we can load Dojo from the CDN whilst still
+        // being able to load local modules
+        packages: [
+            {
+                name: "demo",
+                location: location.pathname.replace(/\/[^/]*$/, '') + '/demo'
+            }
+        ]
+    };
+</script>
+<script src="http://localhost/arcgis_js_v311_API/arcgis_js_api/library/3.11/3.11/dojo/dojo.js"
+        data-dojo-config="async: true"></script>
+    <script>
+    require([
+        'demo/myModule'
+    ], function (myModule) {
+        myModule.setText('greeting', 'Hello Dojo!');
+
+        setTimeout(function () {
+            myModule.restoreText('greeting');
+        }, 3000);
+    });
+</script>
+</body>
+</html>

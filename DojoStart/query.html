@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="http://localhost/arcgis_js_v311_API/arcgis_js_api/library/3.11/3.11/dojo/dojo.js"></script>
+<script>
+    // Require the registry, parser, Dialog, and wait for domReady
+    require(["dojo/query", "dojo/NodeList-dom", "dojo/domReady!"], function(query) {
+        // Add "red" to the className of each node matching
+        // the selector ".odd"
+        query(".odd").addClass("red");
+        console.log(query(".odd"));
+        // Add "blue" to the className of each node matching
+        // the selector ".even"
+        query(".even").addClass("blue");
+    });
+
+
+</script>
+<div id="list">
+    <div class="odd">One</div>
+    <div class="even">Two</div>
+    <div class="odd">Three</div>
+    <div class="even">Four</div>
+    <div class="odd">Five</div>
+    <div class="even">Six</div>
+</div>
+</body>
+</html>
